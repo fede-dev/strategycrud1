@@ -23,6 +23,12 @@ const fetchStrategy = {
         const requestOptions = returnOptions(options, "delete")
         return await fetch(options.url,requestOptions)
     },
+    getTxt: async(obj)=>{
+        return await obj.text()
+    },
+    getJson: async(obj)=>{
+        return await obj.json()
+    },
 }
 
 module.exports = fetchStrategy

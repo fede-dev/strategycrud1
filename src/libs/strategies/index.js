@@ -1,3 +1,3 @@
 const fetchStrategy = require('./fetchStrategy');
-
-module.exports = { fetchStrategy }
+const axiosStrategy = require('./axiosStrategy')
+module.exports = { fetchStrategy, axiosStrategy  }

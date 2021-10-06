@@ -5,14 +5,14 @@ requestHttp.setStrategy(strategies.fetchStrategy)
 const userModel = {
     getUser: async (header) => {
         let users = await requestHttp.get({url:'https://jsonplaceholder.typicode.com/users'})
-        return await users.json()
+        return await requestHttp.getJson(users)
     },
     createUser: async (header, user) =>{
         let result = await requestHttp.post({
             url:'https://jsonplaceholder.typicode.com/users',
             body: user
         })
-        return await result.json()
+        return await requestHttp.getJson(result)
     },
     updateUser:async (header,id,user) => {
         let result = await requestHttp.post({
@@ -20,7 +20,7 @@ const userModel = {
             body: user,
             id: id
         })
-        return await result.json()
+        return await requestHttp.getJson(result)
     },
 
     deleteUser:async (header,id) => {
@@ -28,7 +28,7 @@ const userModel = {
             url:'https://jsonplaceholder.typicode.com/users',
             id: id
         })
-        return await result.json()
+        return await requestHttp.getJson(result)
     }
 }
 
